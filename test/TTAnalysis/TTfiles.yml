@@ -1,0 +1,63 @@
+### DATA ###
+
+'Data_Run2015CD-PromptReco_2015-09-25_cb910ff_a6a226f_histos.root':
+  type: data
+  legend: 'Data'
+
+#'DoubleEG_Run2015C-PromptReco-v1_2015-09-25_cb910ff_a6a226f_histos.root':
+#  type: data
+#  legend: 'Data'
+#  #group: data
+#
+#'DoubleEG_Run2015D-PromptReco-v3_2015-09-25_cb910ff_a6a226f_histos.root':
+#  type: data
+#  legend: 'Data'
+#  #group: data
+#
+#'DoubleMuon_Run2015C-PromptReco-v1_2015-09-25_cb910ff_a6a226f_histos.root':
+#  type: data
+#  legend: 'Data'
+#  #group: data
+#
+#'DoubleMuon_Run2015D-PromptReco-v3_2015-09-25_cb910ff_a6a226f_histos.root':
+#  type: data
+#  legend: 'Data'
+#  #group: data
+#
+#'MuonEG_Run2015C-PromptReco-v1_2015-09-25_cb910ff_a6a226f_histos.root':
+#  type: data
+#  legend: 'Data'
+#  #group: data
+#
+#'MuonEG_Run2015D-PromptReco-v3_2015-09-25_cb910ff_a6a226f_histos.root':
+#  type: data
+#  legend: 'Data'
+#  #group: data
+
+### Drell-Yan ###
+
+'DYJetsToLL_M-50_TuneCUETP8M1_13TeV-amcatnloFXFX_Asympt25ns_cb910ff_a6a226f_histos.root':
+  type: mc
+  cross-section: 6025.2
+  generated-events: 4.52667e+11
+  legend: 'DY_M-50'
+  fill-color: '#00A0B0'
+  order: 2
+
+'DYJetsToLL_M-10to50_TuneCUETP8M1_13TeV-amcatnloFXFX_Asympt25ns_cb910ff_a6a226f_histos.root':
+  type: mc
+  cross-section: 18610
+  generated-events: 9.21135e+11
+  legend: 'DY_M-10to50'
+  fill-color: '#CF00A0B0'
+  order: 1
+
+### TTbar ###
+
+'TT_TuneCUETP8M1_13TeV-powheg-pythia8_25ns_cb910ff_a6a226f_histos.root':
+  type: mc
+  cross-section: 831.76
+  generated-events: 1.98995e+07
+  legend: 'TT'
+  fill-color: '#EB6841'
+  order: 0

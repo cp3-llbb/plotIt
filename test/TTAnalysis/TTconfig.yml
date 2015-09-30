@@ -1,0 +1,26 @@
+configuration:
+  width: 800
+  height: 800
+  luminosity-label: '%lumi% fb^{-1} (13 TeV)'
+  experiment: "CMS"
+  extra-label: "Preliminary"
+  root: "/home/fynu/swertz/llbb/CommonTools/plotUtils/myPlots/150928_TTDYDataCD/"
+  luminosity: 166.37
+  error-fill-style: 3154
+  error-fill-color: "#ee556270"
+  ratio-fit-error-fill-style: 1001
+  ratio-fit-error-fill-color: "#aa556270"
+  ratio-fit-line-color: "#0B486B"
+
+files:
+  include: ['TTfiles.yml']
+
+plots:
+  include: ['TTplots.yml']
+
+legend:
+  position: [0.7, 0.65, 0.9, 0.9]
+
+groups:
+  data:
+    legend: 'Data'
