@@ -252,6 +252,7 @@ namespace plotIt {
     Plot Clone(const std::string& new_name) {
       Plot clone = *this;
       clone.name = new_name;
+      clone.output_name = new_name;
 
       return clone;
     }
