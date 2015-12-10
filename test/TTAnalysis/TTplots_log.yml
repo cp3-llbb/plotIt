@@ -1,0 +1,301 @@
+### LEPTON 1 ###
+
+'lep1_pt_*':
+  x-axis: "Pt (lep1) (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [20, 320]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'lep1_eta_*':
+  x-axis: "Eta (lep1)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-2.5, 2.5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'lep1_phi_*':
+  x-axis: "Phi (lep1)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-3.2, 3.2]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+### LEPTON 2 ###
+
+'lep2_pt_*':
+  x-axis: "Pt (lep2) (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [20, 180]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'lep2_eta_*':
+  x-axis: "Eta (lep2)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-2.5, 2.5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'lep2_phi_*':
+  x-axis: "Phi (lep2)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-3.2, 3.2]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+### (B-)JET 1 ###
+
+'*jet1_pt_*':
+  x-axis: "Pt (jet1) (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [30, 380]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'*jet1_eta_*':
+  x-axis: "Eta (jet1)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-2.5, 2.5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'*jet1_phi_*':
+  x-axis: "Phi (jet1)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-3.2, 3.2]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'*jet1_CSVv2_*':
+  x-axis: "CSVv2 (jet1)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 1]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+### (B-)JET 2 ###
+
+'*jet2_pt_*':
+  x-axis: "Pt (jet2) (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [30, 230]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'*jet2_eta_*':
+  x-axis: "Eta (jet2)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-2.5, 2.5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'*jet2_phi_*':
+  x-axis: "Phi (jet2)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [-3.2, 3.2]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'*jet2_CSVv2_*':
+  x-axis: "CSVv2 (jet2)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 1]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+### LL COMBINED ###
+
+'Mll_*':
+  x-axis: "Mll (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [0, 1000]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'DRll_*':
+  x-axis: "DRll"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 6]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+### JJ/BB COMBINED ###
+
+'Mjj_*':
+  x-axis: "Mjj (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [0, 1000]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'DRjj_*':
+  x-axis: "DRjj"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 6]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'Mbb_*':
+  x-axis: "Mbb (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [0, 1000]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'DRbb_*':
+  x-axis: "DRbb"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 6]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+## MET ##
+
+'PFMET_*':
+  x-axis: "PFMET (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [0, 250]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'NOHFMET_*':
+  x-axis: "noHFMET (GeV)"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f GeV"
+  normalized: false
+  x-axis-range: [0, 250]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+## n(B)Jets ##
+
+'nJet_*':
+  x-axis: "nJet"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 10]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'nLoosebJet_*':
+  x-axis: "nLooseBJet"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'nMediumbJet_*':
+  x-axis: "nMediumBJet"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
+
+'nTightbJet_*':
+  x-axis: "nTighBJet"
+  y-axis: "Evt"
+  y-axis-format: "%1% / %2$.0f"
+  normalized: false
+  x-axis-range: [0, 5]
+  binning-x: 1
+  log-y: true
+  save-extensions: ["png"]
+  show-ratio: true
