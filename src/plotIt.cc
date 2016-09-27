@@ -3,6 +3,7 @@
 // For fnmatch()
 #include <fnmatch.h>
 
+#include <TROOT.h>
 #include <TList.h>
 #include <TCollection.h>
 #include <TCanvas.h>
@@ -1392,15 +1393,16 @@ namespace plotIt {
         }
 
         for (const auto& plot: plots) {
-          std::shared_ptr<TH1> hist(new TH1F(plot.name.c_str(), "", plot.binning_x, plot.x_axis_range.start, plot.x_axis_range.end));
-          hist->GetDirectory()->cd();
+          std::shared_ptr<TH1> hist(new TH1F((plot.uid + std::to_string(file.id)).c_str(), "", plot.binning_x, plot.x_axis_range.start, plot.x_axis_range.end));
+          hist->SetDirectory(gROOT);
 
-          file.chain->Draw((plot.draw_string + ">>" + plot.name).c_str(), plot.selection_string.c_str());
+          file.chain->Draw((plot.draw_string + ">>" + plot.uid + std::to_string(file.id)).c_str(), plot.selection_string.c_str());
 
           hist->SetDirectory(nullptr);
+          
           file.objects.emplace(plot.uid, hist.get());
 
-          TemporaryPool::get().add(hist);
+          TemporaryPool::get().addRuntime(hist);
         }
 
         return true;
