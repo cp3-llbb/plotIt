@@ -869,7 +869,7 @@ namespace plotIt {
       overflow_sumw2 += (h->GetBinError(i) * h->GetBinError(i));
     }
     // Clear out-of-range bin content so that Integral() still returns the right value
-    for (size_t i = 0; i < first_bin-1; i++) {
+    for (size_t i = 1; i < first_bin; i++) {
       h->SetBinContent(i, 0);
     }
     for (size_t i = last_bin + 1; i < (size_t) h->GetNbinsX() + 1; i++) {
