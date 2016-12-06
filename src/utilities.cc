@@ -35,7 +35,6 @@ namespace plotIt {
     style->SetFrameBorderMode(0);
     style->SetFrameBorderSize(1);
     style->SetFrameFillColor(0);
-    style->SetFrameFillStyle(0);
     style->SetFrameLineColor(1);
     style->SetFrameLineStyle(1);
     style->SetFrameLineWidth(1);

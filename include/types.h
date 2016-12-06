@@ -437,6 +437,7 @@ namespace plotIt {
     std::string root = "./";
 
     bool show_overflow = false;
+    bool transparent_background = false;
 
     std::string mode = "hist"; // "tree" or "hist"
     std::string tree_name;

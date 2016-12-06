@@ -412,6 +412,9 @@ namespace plotIt {
       if (node["tree-name"])
           m_config.tree_name = node["tree-name"].as<std::string>();
 
+      if (node["transparent-background"])
+          m_config.transparent_background = node["transparent-background"].as<bool>();
+
       if (node["show-overflow"])
           m_config.show_overflow = node["show-overflow"].as<bool>();
 
@@ -922,6 +925,11 @@ namespace plotIt {
     // Create canvas
     TCanvas c(plot_name.c_str(), plot_name.c_str(), m_config.width, m_config.height);
 
+    if (m_config.transparent_background) {
+        c.SetFillStyle(4000);
+        c.SetFrameFillStyle(4000);
+    }
+
     boost::optional<Summary> summary = ::plotIt::plot(m_files[0], c, plot);
 
     if (! summary)
@@ -943,7 +951,7 @@ namespace plotIt {
     // Build legend
     TLegend legend(legend_position.x1, legend_position.y1, legend_position.x2, legend_position.y2);
     legend.SetTextFont(43);
-    legend.SetFillStyle(0);
+    legend.SetFillStyle(4000);
     legend.SetBorderSize(0);
     legend.SetNColumns(plot.legend_columns);
 
