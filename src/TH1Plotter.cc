@@ -741,18 +741,20 @@ namespace plotIt {
       h_systematics->SetMarkerSize(0);
 
       bool has_syst = false;
-      for (uint32_t i = 1; i <= (uint32_t) h_systematics->GetNbinsX(); i++) {
+      if (! no_systematics) {
+        for (uint32_t i = 1; i <= (uint32_t) h_systematics->GetNbinsX(); i++) {
 
-        if (mc_stack.syst_only->GetBinContent(i) == 0 || mc_stack.syst_only->GetBinError(i) == 0)
-          continue;
+          if (mc_stack.syst_only->GetBinContent(i) == 0 || mc_stack.syst_only->GetBinError(i) == 0)
+            continue;
 
-        // relative error, delta X / X
-        float syst = mc_stack.syst_only->GetBinError(i) / mc_stack.syst_only->GetBinContent(i);
+          // relative error, delta X / X
+          float syst = mc_stack.syst_only->GetBinError(i) / mc_stack.syst_only->GetBinContent(i);
 
-        h_systematics->SetBinContent(i, 1);
-        h_systematics->SetBinError(i, syst);
+          h_systematics->SetBinContent(i, 1);
+          h_systematics->SetBinError(i, syst);
 
-        has_syst = true;
+          has_syst = true;
+        }
       }
 
       if (has_syst) {
