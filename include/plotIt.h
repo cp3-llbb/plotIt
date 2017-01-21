@@ -33,7 +33,7 @@ class TLegend;
 namespace fs = boost::filesystem;
 
 namespace plotIt {
-
+  
   class plotIt {
     public:
       plotIt(const fs::path& outputPath);

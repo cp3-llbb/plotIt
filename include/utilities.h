@@ -181,4 +181,6 @@ namespace plotIt {
   }
 
   TDirectory* getDirectory(TDirectoryFile* root, const boost::filesystem::path& directory, bool create = true);
+
+    std::string applyRenaming(const std::vector<RenameOp>& ops, const std::string input);
 }

@@ -1,5 +1,6 @@
 #include <systematics.h>
 #include <types.h>
+#include <utilities.h>
 
 #include "yaml-cpp/yaml.h"
 
@@ -160,7 +161,7 @@ namespace plotIt {
         for (const auto& variation: variations) {
             std::string object_postfix = formatSystematicsName(variation);
 
-            std::string object_name = plot.name + object_postfix;
+            std::string object_name = applyRenaming(file.renaming_ops, plot.name) + object_postfix;
             TObject* object = file.handle->Get(object_name.c_str());
 
             if (object) {

@@ -243,4 +243,14 @@ namespace plotIt {
 
       return local_root;
   }
+
+  std::string applyRenaming(const std::vector<RenameOp>& ops, const std::string input) {
+      std::string result = input;
+
+      for (const auto& op: ops) {
+          result = std::regex_replace(result, op.from, op.to, std::regex_constants::format_sed);
+      }
+
+      return result;
+  }
 }
