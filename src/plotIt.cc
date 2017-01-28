@@ -1046,7 +1046,7 @@ namespace plotIt {
           replace_substr(plot.yields_title, "_", "\\_");
 
       if( std::find_if(categories.begin(), categories.end(), [&](const std::pair<int, std::string> &x){ return x.second == plot.yields_title; }) != categories.end() )
-        return false;
+          continue;
       categories.push_back( std::make_pair(plot.yields_table_order, plot.yields_title) );
 
       std::map<std::tuple<Type, std::string>, double> plot_total_systematics;
