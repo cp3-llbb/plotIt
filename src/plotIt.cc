@@ -951,7 +951,7 @@ namespace plotIt {
     // Build legend
     TLegend legend(legend_position.x1, legend_position.y1, legend_position.x2, legend_position.y2);
     legend.SetTextFont(43);
-    legend.SetFillStyle(4000);
+    legend.SetFillStyle(0);
     legend.SetBorderSize(0);
     legend.SetNColumns(plot.legend_columns);
 
