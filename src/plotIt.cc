@@ -76,10 +76,7 @@ namespace plotIt {
         YAML::Node merged_node;
 
         for (std::string& file: files) {
-          fs::path ifp{file};
-          if ( ! ifp.is_absolute() ) {
-            ifp = fs::absolute(ifp, base);
-          }
+          fs::path ifp = fs::absolute(fs::path(file), base);
           YAML::Node root;
           try {
             root = YAML::LoadFile(ifp.string());
@@ -223,7 +220,7 @@ namespace plotIt {
       file.plot_style->loadFromYAML(node, file.type);
   }
 
-  bool plotIt::parseConfigurationFile(const std::string& file) {
+  bool plotIt::parseConfigurationFile(const std::string& file, const fs::path& histogramsPath) {
     YAML::Node f;
     try {
       f = YAML::LoadFile(file);
@@ -309,8 +306,9 @@ namespace plotIt {
       if (node["luminosity-label"])
         m_config.lumi_label = node["luminosity-label"].as<std::string>();
 
-      if (node["root"])
-        m_config.root = node["root"].as<std::string>();
+      if (node["root"]) {
+        m_config.root = fs::absolute(fs::path(node["root"].as<std::string>()), histogramsPath).string();
+      }
 
       if (node["scale"])
         m_config.scale = node["scale"].as<float>();
@@ -1764,6 +1762,8 @@ int main(int argc, char** argv) {
 
     TCLAP::CmdLine cmd("Plot histograms", ' ', "0.1");
 
+    TCLAP::ValueArg<std::string> histogramsFolderArg("i", "histograms-folder", "histograms base folder (default: current directory)", false, "./", "string", cmd);
+
     TCLAP::ValueArg<std::string> outputFolderArg("o", "output-folder", "output folder", true, "", "string", cmd);
 
     TCLAP::SwitchArg ignoreScaleArg("", "ignore-scales", "Ignore any scales present in the configuration file", cmd, false);
@@ -1783,6 +1783,12 @@ int main(int argc, char** argv) {
     cmd.parse(argc, argv);
 
     //bool isData = dataArg.isSet();
+
+    fs::path histogramsPath(fs::canonical(histogramsFolderArg.getValue()));
+
+    if (! fs::exists(histogramsPath)) {
+      std::cout << "Error: histograms path " << histogramsPath << " does not exist" << std::endl;
+    }
 
     fs::path outputPath(outputFolderArg.getValue());
 
@@ -1804,7 +1810,7 @@ int main(int argc, char** argv) {
     CommandLineCfg::get().systematicsBreakdown = systematicsBreakdownArg.getValue();
 
     plotIt::plotIt p(outputPath);
-    if (!p.parseConfigurationFile(configFileArg.getValue()))
+    if (!p.parseConfigurationFile(configFileArg.getValue(), histogramsPath))
         return 1;
 
     p.plotAll();
