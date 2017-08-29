@@ -77,7 +77,13 @@ namespace plotIt {
 
         bool first_file = true;
         for (std::string& file: files) {
-          YAML::Node root = YAML::LoadFile(file);
+          YAML::Node root;
+          try {
+            root = YAML::LoadFile(file);
+          } catch ( const YAML::BadFile& e ) {
+            std::cout << "Problem parsing YAML file '" << file << "'" << std::endl;
+            throw e;
+          }
 
           if (first_file) {
             first_file = false;
@@ -219,7 +225,13 @@ namespace plotIt {
   }
 
   bool plotIt::parseConfigurationFile(const std::string& file) {
-    YAML::Node f = YAML::LoadFile(file);
+    YAML::Node f;
+    try {
+      f = YAML::LoadFile(file);
+    } catch ( const YAML::BadFile& e ) {
+      std::cout << "Problem parsing YAML file '" << file << "'" << std::endl;
+      throw e;
+    }
 
     if (CommandLineCfg::get().verbose) {
         std::cout << "Parsing configuration file ...";
