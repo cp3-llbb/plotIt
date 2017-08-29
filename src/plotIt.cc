@@ -67,7 +67,7 @@ namespace plotIt {
     }
 
   // Replace the "include" fields by the content they point to
-  void plotIt::parseIncludes(YAML::Node& node) {
+  void plotIt::parseIncludes(YAML::Node& node, const fs::path& base) {
 
 
     if (node["include"]) {
@@ -75,19 +75,20 @@ namespace plotIt {
 
         YAML::Node merged_node;
 
-        bool first_file = true;
         for (std::string& file: files) {
+          fs::path ifp{file};
+          if ( ! ifp.is_absolute() ) {
+            ifp = fs::absolute(ifp, base);
+          }
           YAML::Node root;
           try {
-            root = YAML::LoadFile(file);
+            root = YAML::LoadFile(ifp.string());
           } catch ( const YAML::BadFile& e ) {
-            std::cout << "Problem parsing YAML file '" << file << "'" << std::endl;
+            std::cout << "Problem parsing YAML file '" << ifp << "'" << std::endl;
             throw e;
           }
-
-          if (first_file) {
-            first_file = false;
-            // Set 'node' to the same type as 'root'
+          if (root.Type() == YAML::NodeType::Map) {
+            parseIncludes(root, ifp.parent_path());
           }
 
           for (YAML::const_iterator it = root.begin(); it != root.end(); ++it) {
@@ -101,13 +102,11 @@ namespace plotIt {
 
         node = merged_node;
 
-        if (node["include"])
-            parseIncludes(node);
     }
 
     for (YAML::iterator it = node.begin(); it != node.end(); ++it) {
       if (it->second.Type() == YAML::NodeType::Map) {
-          parseIncludes(it->second);
+          parseIncludes(it->second, base);
       }
     }
 
@@ -237,7 +236,7 @@ namespace plotIt {
         std::cout << "Parsing configuration file ...";
     }
 
-    parseIncludes(f);
+    parseIncludes(f, fs::absolute(fs::path(file)).parent_path());
 
     if (! f["files"]) {
       throw YAML::ParserException(YAML::Mark::null_mark(), "Your configuration file must have a 'files' list");

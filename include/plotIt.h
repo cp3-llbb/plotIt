@@ -54,7 +54,7 @@ namespace plotIt {
 
     private:
       void checkOrThrow(YAML::Node& node, const std::string& name, const std::string& file);
-      void parseIncludes(YAML::Node& node);
+      void parseIncludes(YAML::Node& node, const fs::path& base);
       void parseSystematicsNode(const YAML::Node& node);
       void parseFileNode(File& file, const YAML::Node& key, const YAML::Node& value);
       void parseFileNode(File& file, const YAML::Node& node);
