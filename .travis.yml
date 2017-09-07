@@ -21,6 +21,8 @@ addons:
     - libboost-filesystem1.55-dev
     - libboost-regex1.55-dev
     - libboost-system1.55-dev
+    - libgsl0ldbl
+    - ghostscript
 install:
 - export CXX=g++-4.9
 - export CC=gcc-4.9

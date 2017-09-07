@@ -6,6 +6,7 @@ import unittest
 import shutil
 import yaml
 import tempfile
+import subprocess
 
 from configuration import get_configuration
 
@@ -125,9 +126,6 @@ class plotItSimpleTestCase(unittest.TestCase):
         self.__generate_golden_images = False
 
     def run_plotit(self, configuration):
-        import subprocess
-        import tempfile
-
         with tempfile.NamedTemporaryFile() as yml:
             yml.write(yaml.dump(configuration))
             yml.flush()
