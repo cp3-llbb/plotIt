@@ -31,6 +31,6 @@ jobs:
       - name: Run tests
         run: |
           cd "${GITHUB_WORKSPACE}/test"
-          sed -i 's=/usr/bin/env python=/usr/bin/env python3=' tests.py
+          sed -i 's=python =python3 =' run_tests.sh
           ./run_tests.sh
           cd -
