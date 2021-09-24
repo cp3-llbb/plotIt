@@ -23,7 +23,7 @@ jobs:
           pip install pyyaml requests
           mkdir -p $HOME/.config/ImageMagick
           cp test/policy.xml $HOME/.config/ImageMagick
-          sudo rm -f /etc/ImageMagick-6/policy.xml # workaround
+          rm -f /etc/ImageMagick-6/policy.xml # workaround
       - name: Build
         run: |
           cmake . 
