@@ -1,0 +1,34 @@
+name: plotIt tests CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+  workflow_dispatch:
+
+jobs:
+  tests:
+    name: plotIt tests
+    runs-on: ubuntu-latest
+    container: rootproject/root:latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        run: |
+          sudo apt-get install -y libboost-dev libboost-filesystem-dev libboost-regex-dev libboost-system-dev git make ghostscript cmake
+          pip install pyyaml requests
+          mkdir -p $HOME/.config/ImageMagick
+          cp test/policy.xml $HOME/.config/ImageMagick
+          sudo rm -f /etc/ImageMagick-6/policy.xml # workaround
+      - name: Build
+        run: |
+          cmake . 
+          make
+      - name: Run tests
+        run: |
+          pushd "${GITHUB_WORKSPACE}/test"
+          ./run_tests.sh
+          popd
