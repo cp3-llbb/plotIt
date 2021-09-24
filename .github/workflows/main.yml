@@ -19,7 +19,7 @@ jobs:
       - name: Install dependencies
         run: |
           apt-get update -qq
-          apt-get install -y libboost-dev libboost-filesystem-dev libboost-regex-dev libboost-system-dev make ghostscript cmake pip
+          apt-get install -y libboost-dev libboost-filesystem-dev libboost-regex-dev libboost-system-dev make ghostscript cmake pip python
           pip install pyyaml requests
           mkdir -p $HOME/.config/ImageMagick
           cp test/policy.xml $HOME/.config/ImageMagick
