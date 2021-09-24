@@ -30,6 +30,6 @@ jobs:
           make
       - name: Run tests
         run: |
-          pushd "${GITHUB_WORKSPACE}/test"
+          cd "${GITHUB_WORKSPACE}/test"
           ./run_tests.sh
-          popd
+          cd -
