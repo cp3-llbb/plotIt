@@ -1,4 +1,4 @@
-cmake_minimum_required( VERSION 2.8 )
+cmake_minimum_required( VERSION 2.8.12 )
 
 project(plotIt LANGUAGES CXX)
 
@@ -16,15 +16,15 @@ find_package(Boost REQUIRED COMPONENTS filesystem regex system)
 
 ExternalProject_Add(
   yaml-cpp-build
-  URL https://github.com/jbeder/yaml-cpp/archive/yaml-cpp-0.6.2.tar.gz
-  CMAKE_ARGS -DYAML_CPP_BUILD_TOOLS=OFF -DYAML_CPP_BUILD_CONTRIB=OFF -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/external
+  URL https://github.com/jbeder/yaml-cpp/archive/refs/tags/yaml-cpp-0.7.0.tar.gz
+  CMAKE_ARGS -DYAML_CPP_BUILD_TOOLS=OFF -DYAML_CPP_BUILD_CONTRIB=OFF -DCMAKE_INSTALL_PREFIX=${CMAKE_CURRENT_BINARY_DIR}/external -DCMAKE_CXX_FLAGS='-Wno-error=maybe-uninitialized'
   )
 add_library(yaml-cpp STATIC IMPORTED)
 add_dependencies(yaml-cpp yaml-cpp-build)
 set_target_properties(yaml-cpp PROPERTIES IMPORTED_LOCATION ${CMAKE_CURRENT_BINARY_DIR}/external/lib/libyaml-cpp.a)
 ExternalProject_Add(
   tclap
-  URL https://github.com/mirror/tclap/archive/tclap-1-2-1-release-final.tar.gz
+  URL https://github.com/mirror/tclap/archive/refs/tags/v1.2.4.tar.gz
   BUILD_IN_SOURCE 1
   PATCH_COMMAND ./autotools.sh
   CONFIGURE_COMMAND ./configure --prefix=${CMAKE_CURRENT_BINARY_DIR}/external
