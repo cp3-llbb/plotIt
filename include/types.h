@@ -10,6 +10,7 @@
 #include <uuid.h>
 #include <systematics.h>
 
+#include <cmath>
 #include <yaml-cpp/yaml.h>
 
 #include <TObject.h>

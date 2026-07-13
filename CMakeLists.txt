@@ -12,7 +12,7 @@ if(EXISTS "$ENV{CMAKE_PREFIX_PATH}/include/boost")
 endif()
 
 find_package(ROOT REQUIRED COMPONENTS HistPainter Tree)
-find_package(Boost REQUIRED COMPONENTS filesystem regex system)
+find_package(Boost REQUIRED COMPONENTS filesystem regex)
 
 ExternalProject_Add(
   yaml-cpp-build
@@ -54,7 +54,7 @@ if((${ROOT_VERSION} VERSION_LESS "6.18.00"))
   endif()
 endif()
 if(TARGET ROOT::Tree AND TARGET ROOT::HistPainter)
-  target_link_libraries(plotIt ROOT::HistPainter ROOT::Tree dl Boost::filesystem Boost::regex Boost::system yaml-cpp)
+  target_link_libraries(plotIt ROOT::HistPainter ROOT::Tree dl Boost::filesystem Boost::regex yaml-cpp)
   target_include_directories(plotIt PRIVATE $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include> ${CMAKE_CURRENT_BINARY_DIR}/external/include)
 else()
   target_link_libraries(plotIt ${ROOT_LIBRARIES} dl Boost::filesystem Boost::regex Boost::system yaml-cpp)
