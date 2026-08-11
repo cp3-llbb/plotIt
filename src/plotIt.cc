@@ -25,6 +25,7 @@
 #include <set>
 #include <iomanip>
 
+#include <cmath>
 #include "tclap/CmdLine.h"
 
 #include <boost/algorithm/string/replace.hpp>
